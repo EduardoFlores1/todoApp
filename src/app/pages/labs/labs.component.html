@@ -1,8 +1,33 @@
-<h1>Mi Primer Proyecto en Angular</h1>
-<h2>{{ welcome }}</h2>
+<div class="container">
+    <h1>Mi Primer Proyecto en Angular</h1>
+    <h2>{{ welcome }}</h2>
 
-<ul>
-    <li *ngFor="let item of tasks">
-        {{item}}
-    </li>
-</ul>
+    <ul>
+        <li *ngFor="let item of tasks">
+            {{item}}
+        </li>
+    </ul>
+
+    <hr>
+
+    <p>Hola mi nombre es {{ name }} y mi edad es {{ 10+11 }}</p>
+
+    <hr>
+
+    <input type="text" [value]="persona.nombre">
+    <button [disabled]="status">Click ME !!!</button>
+
+    <hr>
+
+    <button (click)="clickHandler()">Boton (click)</button>
+    <p>doble click</p>
+    <button (dblclick)="clickHandler()">Boton (doble click)</button>
+    <p>change</p>
+    <input type="text" (change)="changeHandler($event)">
+    <p>keydown</p>
+    <input type="text" [value]="persona.nombre" (keydown)="keydownHandler($event)">
+    <h1>Signals</h1>
+    <input type="text" [value]="cambia()" (change)="changeHandler($event)">
+    <p>Hola mundo, soy: {{ cambia()}}</p>
+    <p>Hola mundo, soy: {{ cambia()}}</p>
+</div>
