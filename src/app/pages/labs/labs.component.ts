@@ -12,11 +12,11 @@ export class LabsComponent {
 
   welcome = 'Hello!';
 
-  tasks = [
+  tasks = signal([
       'Rubiñozzzzzz',
       'Markiñozzzzz',
       'Neymiñoooooo'
-  ]
+  ]);
 
   name = 'Eduardo';
   status = true;
@@ -33,6 +33,7 @@ export class LabsComponent {
 
 
   cambia = signal('Eduardo');
+
   changeHandler(event: Event) {
     const input = event.target as HTMLInputElement;
     this.cambia.set(input.value);
@@ -41,5 +42,21 @@ export class LabsComponent {
   keydownHandler(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
     console.log(input.value)
+  }
+
+  person = signal({
+    name: 'Eduardo',
+    age: 21
+  })
+
+  changeAge(event : Event) {
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(personState => {
+      return {
+        ...personState,
+        age: parseInt(newValue, 10)
+      }
+    })
   }
 }
