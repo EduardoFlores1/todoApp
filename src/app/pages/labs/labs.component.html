@@ -49,5 +49,27 @@
     <ng-template #bloque>
         No soy Eduardo
     </ng-template>
+
+    <hr>
+    <h2>NgSwitch</h2>
+    <div [ngSwitch]="person().name">
+        <p *ngSwitchCase="'eduardo'">yo soy eduardo</p>
+        <p *ngSwitchCase="'nicolas'">yo soy nicolas</p>
+        <p *ngSwitchCase="'fernando'">yo soy fernando</p>
+        <p *ngSwitchDefault>no soy nadie</p>
+    </div>
+
+    <hr>
+
+    <input type="color" [formControl]="colorCtrl">
+    <p>color: {{colorCtrl.value}}</p>
+
+    <hr>
+
+    <input type="number" [formControl] = "widthControl">
+    <span class="box" [style.width.px]="widthControl.value"></span>
+
+    <hr>
+    <input type="text" [formControl]="nameControl">
     
 </div>
