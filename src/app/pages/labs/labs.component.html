@@ -50,6 +50,13 @@
         No soy Eduardo
     </ng-template>
 
+    <h2>ng if nueva sintaxis</h2>
+    @if (person().age == 18) {
+        <strong>nuevo if mayor edad</strong>
+    } @else {
+        <i>nuevo if mayor edad</i>
+    }
+
     <hr>
     <h2>NgSwitch</h2>
     <div [ngSwitch]="person().name">
@@ -71,5 +78,49 @@
 
     <hr>
     <input type="text" [formControl]="nameControl">
+
+    <hr>
+    <h2>New For</h2>
+    
+    <ul>
+        <p>Total: {{ tasks().length}}</p>
+        <li *ngFor="let item of tasks(); index as i">
+           {{ i }} {{item}}
+        </li>
+    </ul>
+
+    <ul>
+        <p>Total: {{tasks().length }}</p>
+        @for(task of tasks(); track task; let i = $index) {
+            <li>
+                {{i}} {{task}}
+            </li>
+        } @empty {
+            <p>GAAAAAAA</p>
+        }
+    </ul>
+    <hr>
+    <h2>new ngswitch</h2>
+    <div [ngSwitch]="person().name">
+        <p *ngSwitchCase="'eduardo'">yo soy eduardo</p>
+        <p *ngSwitchCase="'nicolas'">yo soy nicolas</p>
+        <p *ngSwitchCase="'fernando'">yo soy fernando</p>
+        <p *ngSwitchDefault>no soy nadie</p>
+    </div>
+
+    @switch (person().name) {
+        @case ('eduardo') {
+            <p>yo soy eduardo</p>
+        }
+        @case ('nicolas') {
+            <p>yo soy nicolas</p>
+        }
+        @case ('fernando') {
+            <p>yo soy fernando</p>
+        }
+        @default {
+            <p>Yo no soy nadie</p>
+        }
+    }
     
 </div>
